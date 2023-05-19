@@ -1,0 +1,15 @@
+additional_route_maps:
+  - entries:
+    -   action: permit
+        match:
+            extcommunity:
+            - VERYSPECIAL
+            ip:
+                address:
+                    prefix_lists:
+                    - SECRET101-PR
+                    - SECRET102-TS
+                    - SECRET103-PR_sum
+                    - SECRET104-TS_sum
+        sequence: 10
+    route_map: TOPGUN

@@ -1,0 +1,16 @@
+key: value
+route_maps:
+  - entries:
+    -   action: permit
+        match:
+            extcommunity:
+            - COMMON
+            ip:
+                address:
+                    prefix_lists:
+                    - COMMON-PR
+                    - COMMON-TS
+                    - COMMON-PR_sum
+                    - COMMON-TS_sum
+        sequence: 10
+    route_map: COMMON
